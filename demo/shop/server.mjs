@@ -5,6 +5,7 @@ import { readFile } from 'node:fs/promises';
 import { extname, join, resolve, sep } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { openDb, hashPassword, verifyPassword } from './db.mjs';
+import { createPages } from './pages.mjs';
 
 const HERE = fileURLToPath(new URL('.', import.meta.url));
 const PUBLIC = join(HERE, 'public');
@@ -12,6 +13,7 @@ const PORT = Number(process.env.PORT || 3000);
 const MULT = Number(process.env.RATE_MULT || 1); // raise on staging to load-test with a few test accounts
 const SECURE = process.env.COOKIE_SECURE === '1'; // set behind HTTPS
 const COOKIE = SECURE ? '__Host-sid' : 'sid';
+const SITE = (process.env.SITE_URL || `http://localhost:${PORT}`).replace(/\/$/, ''); // the public origin, used in canonicals and the sitemap
 const SESSION_MS = 8 * 3600_000;
 const db = openDb(process.env.DB_PATH || join(HERE, 'shop.db'));
 const DUMMY_HASH = await hashPassword('dummy-password-for-timing'); // unknown emails cost the same time as wrong passwords
@@ -281,7 +283,17 @@ async function api(req, res, url) {
   throw new HttpError(404, 'not_found');
 }
 
-// ---------- static files ----------
+// ---------- pages and static files ----------
+const page = createPages({ templatePath: join(PUBLIC, 'index.html'), site: SITE, getProduct: (id) => { const p = q.product.get(id); return p ? productDto(p) : null; }, listProducts });
+function sendPage(req, res, p) {
+  const headers = { 'Cache-Control': 'no-cache' };
+  if (p.location) headers.Location = p.location;
+  if (p.type) headers['Content-Type'] = p.type;
+  if (p.noindex) headers['X-Robots-Tag'] = 'noindex';
+  res.writeHead(p.status, headers);
+  res.end(req.method === 'HEAD' ? undefined : p.body);
+}
+
 const TYPES = { '.html': 'text/html; charset=utf-8', '.css': 'text/css; charset=utf-8', '.js': 'text/javascript; charset=utf-8', '.svg': 'image/svg+xml', '.json': 'application/json', '.ico': 'image/x-icon' };
 async function serveStatic(req, res, pathname) {
   if (req.method !== 'GET' && req.method !== 'HEAD') throw new HttpError(405, 'method_not_allowed');
@@ -307,7 +319,11 @@ const server = http.createServer(async (req, res) => {
   try {
     const url = new URL(req.url, 'http://local');
     if (url.pathname.startsWith('/api/')) await api(req, res, url);
-    else await serveStatic(req, res, url.pathname);
+    else {
+      const p = (req.method === 'GET' || req.method === 'HEAD') && await page(url.pathname);
+      if (p) sendPage(req, res, p);
+      else await serveStatic(req, res, url.pathname);
+    }
   } catch (e) {
     if (e instanceof HttpError) {
       const { retryAfter, ...extra } = e.extra;

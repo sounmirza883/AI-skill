@@ -3,8 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Fieldnote Goods</title>
-  <meta name="description" content="Fieldnote Goods: a small demo shop of everyday objects. Payments are simulated.">
+  <!--SEO-->
   <meta name="color-scheme" content="light dark">
   <link rel="icon" href="data:,">
   <link rel="stylesheet" href="/styles.css">
@@ -16,13 +15,13 @@
 
   <header class="nav" id="nav">
     <div class="wrap nav__in">
-      <a class="brand" href="#/">Fieldnote<span> Goods</span></a>
+      <a class="brand" href="/">Fieldnote<span> Goods</span></a>
       <nav aria-label="Main">
-        <a href="#/" data-route="/">Shop</a>
-        <a href="#/orders" data-route="/orders">Orders</a>
+        <a href="/" data-route="/">Shop</a>
+        <a href="/orders" data-route="/orders">Orders</a>
       </nav>
       <div class="nav__end">
-        <a class="btn btn--ghost" id="login-link" href="#/login">Log in</a>
+        <a class="btn btn--ghost" id="login-link" href="/login">Log in</a>
         <button class="btn btn--ghost" id="logout-btn" type="button" hidden>Log out</button>
         <button class="btn btn--cart" id="cart-btn" type="button" aria-haspopup="dialog" aria-label="Cart, 0 items">
           Cart <span class="count" id="cart-count" aria-hidden="true">0</span>
@@ -31,7 +30,7 @@
     </div>
   </header>
 
-  <main id="main" tabindex="-1"></main>
+  <main id="main" tabindex="-1"><!--MAIN--></main>
 
   <footer class="footer">
     <div class="wrap">
@@ -47,7 +46,7 @@
     <div class="drawer__body" id="cart-body"></div>
     <div class="drawer__foot">
       <p class="total"><span>Total</span><strong id="cart-total">$0.00</strong></p>
-      <a class="btn btn--primary btn--block" id="to-checkout" href="#/checkout">Go to checkout</a>
+      <a class="btn btn--primary btn--block" id="to-checkout" href="/checkout">Go to checkout</a>
     </div>
   </dialog>
 

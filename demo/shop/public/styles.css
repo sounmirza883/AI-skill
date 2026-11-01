@@ -203,3 +203,9 @@ fieldset { margin: 0; padding: 0; border: 0; display: grid; gap: 8px; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; transition-delay: 0ms !important; scroll-behavior: auto !important; }
 }
+/* server-rendered content (first paint, crawlers) and links that make product pages crawlable */
+.card h3 a { color: inherit; text-decoration: none; }
+@media (hover: hover) and (pointer: fine) { .card h3 a:hover { text-decoration: underline; } }
+.ssr-list { padding-left: 1.2em; line-height: 1.6; }
+.ssr-list li { margin-block: .5em; }
+.product nav { margin-bottom: 1rem; color: var(--muted); }

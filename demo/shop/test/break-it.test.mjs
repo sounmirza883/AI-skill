@@ -120,7 +120,7 @@ test('static server never leaks files outside public/', async () => {
     const r = await fetch(main.base + p);
     const body = await r.text();
     // "//server.mjs" parses as a protocol-relative URL whose path is "/", so the app shell (200) is correct; source code never is.
-    assert.ok([400, 404].includes(r.status) || (r.status === 200 && body.includes('<title>Fieldnote Goods</title>')), `${p} -> ${r.status}`);
+    assert.ok([400, 404].includes(r.status) || (r.status === 200 && /<title>Fieldnote Goods[^<]*<\/title>/.test(body)), `${p} -> ${r.status}`);
     assert.ok(!/import .* from|DatabaseSync/.test(body), `${p} leaked source`);
   }
 });

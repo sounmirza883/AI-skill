@@ -86,7 +86,7 @@ function toast(msg) {
   toastTimer = setTimeout(() => el.classList.remove('is-in'), 4500);
 }
 function fail(e) {
-  if (e.status === 401) { state.user = null; state.cart = { items: [], totalCents: 0 }; renderChrome(); toast('Please log in to continue.'); location.hash = '#/login'; return; }
+  if (e.status === 401) { state.user = null; state.cart = { items: [], totalCents: 0 }; renderChrome(); toast('Please log in to continue.'); go('/login'); return; }
   toast(describe(e));
 }
 
@@ -113,7 +113,7 @@ function setQty(id, qty) {
   renderChrome(); // optimistic: show the new count right away
 }
 function addToCart(id) {
-  if (!state.user) { state.pendingAdd = id; toast('Log in to add items to your cart.'); location.hash = '#/login'; return; }
+  if (!state.user) { state.pendingAdd = id; toast('Log in to add items to your cart.'); go('/login'); return; }
   setQty(id, (target.get(id) ?? cartQty(id)) + 1);
 }
 
@@ -181,7 +181,7 @@ function shopView() {
   const cards = state.items.map((p, i) => h('article', { class: 'card', 'data-reveal': '' },
     h('div', { class: `card__art tone-${(i % 6) + 1}` }, art(p.id)),
     h('div', { class: 'card__body' },
-      h('h3', { text: p.name }),
+      h('h3', {}, h('a', { href: `/products/${p.id}`, text: p.name })),
       h('p', { class: 'muted', text: p.description }),
       h('div', { class: 'card__row' }, h('span', { class: 'price', text: money(p.priceCents) }), h('span', { class: 'in-cart', 'data-incart': p.id, hidden: true, 'aria-live': 'polite' })),
       h('button', { class: 'btn btn--primary btn--block', type: 'button', disabled: !p.inStock, 'aria-label': p.inStock ? `Add ${p.name} to cart` : `${p.name} is sold out`, text: p.inStock ? 'Add to cart' : 'Sold out', onclick: () => addToCart(p.id) }))));
@@ -210,7 +210,7 @@ function loginView() {
       await load();
       const add = state.pendingAdd;
       state.pendingAdd = null;
-      location.hash = '#/';
+      go('/');
       if (add) addToCart(add);
     } catch (e) {
       err.textContent = describe(e);
@@ -233,7 +233,7 @@ function ordersView() {
         h('time', { datetime: o.createdAt, class: 'muted', text: fmt.format(new Date(o.createdAt)) })),
       h('ul', { class: 'lines' }, o.items.map((i) => h('li', {}, h('span', { text: `${i.qty} × ${i.name}` }), h('span', { class: 'num', text: money(i.unitCents * i.qty) })))),
       h('p', { class: 'total' }, h('span', { text: 'Total' }), h('strong', { text: money(o.totalCents) })))) : [
-      h('div', { class: 'empty' }, h('p', { text: 'No orders yet.' }), h('a', { class: 'btn btn--primary', href: '#/', text: 'Start shopping' }))]));
+      h('div', { class: 'empty' }, h('p', { text: 'No orders yet.' }), h('a', { class: 'btn btn--primary', href: '/', text: 'Start shopping' }))]));
     watchReveals();
   }).catch(fail).finally(() => box.removeAttribute('aria-busy'));
   return h('section', { class: 'page wrap' }, h('h1', { text: 'Your orders' }), box);
@@ -246,13 +246,13 @@ function confirmationView(order) {
     h('div', { class: 'panel' },
       h('ul', { class: 'lines' }, order.items.map((i) => h('li', {}, h('span', { text: `${i.qty} × ${i.name}` }), h('span', { class: 'num', text: money(i.unitCents * i.qty) })))),
       h('p', { class: 'total' }, h('span', { text: 'Paid' }), h('strong', { text: money(order.totalCents) }))),
-    h('div', {}, h('a', { class: 'btn btn--primary', href: '#/orders', text: 'View your orders' })));
+    h('div', {}, h('a', { class: 'btn btn--primary', href: '/orders', text: 'View your orders' })));
 }
 
 function checkoutView() {
-  if (!state.user) { state.pendingAdd = null; location.hash = '#/login'; return h('div'); }
+  if (!state.user) { state.pendingAdd = null; go('/login', true); return h('div'); }
   const items = state.cart.items;
-  if (!items.length) return h('section', { class: 'page narrow' }, h('h1', { text: 'Checkout' }), h('div', { class: 'empty' }, h('p', { text: 'Your cart is empty.' }), h('a', { class: 'btn btn--primary', href: '#/', text: 'Back to the shop' })));
+  if (!items.length) return h('section', { class: 'page narrow' }, h('h1', { text: 'Checkout' }), h('div', { class: 'empty' }, h('p', { text: 'Your cart is empty.' }), h('a', { class: 'btn btn--primary', href: '/', text: 'Back to the shop' })));
 
   const err = h('p', { class: 'form-error', role: 'alert' });
   const status = h('p', { class: 'sr-only', role: 'status' });
@@ -310,7 +310,12 @@ function checkoutView() {
 }
 
 // ---------- router ----------
-const ROUTES = { '/': ['Fieldnote Goods', shopView], '/login': ['Log in – Fieldnote Goods', loginView], '/orders': ['Your orders – Fieldnote Goods', ordersView], '/checkout': ['Checkout – Fieldnote Goods', checkoutView] };
+function go(path, replace = false) {
+  history[replace ? 'replaceState' : 'pushState'](null, '', path);
+  queueMicrotask(render); // views may call go() while rendering, so render after the current one finishes
+}
+// '/' uses the same title the server sends (pages.mjs)
+const ROUTES = { '/': ['Fieldnote Goods – everyday objects, made to last', shopView], '/login': ['Log in – Fieldnote Goods', loginView], '/orders': ['Your orders – Fieldnote Goods', ordersView], '/checkout': ['Checkout – Fieldnote Goods', checkoutView] };
 const revealObserver = new IntersectionObserver((entries) => {
   for (const e of entries) if (e.isIntersecting) { e.target.classList.add('is-in'); revealObserver.unobserve(e.target); } // reveal once
 }, { rootMargin: '0px 0px -10% 0px' });
@@ -319,9 +324,10 @@ function watchReveals() {
 }
 let firstRender = true;
 async function render() {
-  const path = location.hash.slice(1) || '/';
-  if ((path === '/orders') && !state.user) { location.hash = '#/login'; return; }
-  const [title, view] = ROUTES[path] || ['Not found – Fieldnote Goods', () => h('section', { class: 'page narrow' }, h('h1', { text: 'Page not found' }), h('a', { class: 'btn btn--primary', href: '#/', text: 'Back to the shop' }))];
+  const path = location.pathname;
+  if ((path === '/orders') && !state.user) { go('/login', true); return; }
+  if (path.startsWith('/products/')) { firstRender = false; renderChrome(); return; } // server-rendered product page: keep its HTML
+  const [title, view] = ROUTES[path] || ['Not found – Fieldnote Goods', () => h('section', { class: 'page narrow' }, h('h1', { text: 'Page not found' }), h('a', { class: 'btn btn--primary', href: '/', text: 'Back to the shop' }))];
   const main = $('#main');
   document.documentElement.classList.remove('is-loaded');
   main.replaceChildren(view());
@@ -345,10 +351,19 @@ $('#logout-btn').addEventListener('click', async () => {
   try { await api('/api/logout', { method: 'POST' }); } catch { /* cookie may already be gone */ }
   target.clear(); state.checkoutKey = null;
   await load().catch(() => {});
-  location.hash = '#/';
-  render();
+  go('/');
 });
-addEventListener('hashchange', render);
+addEventListener('popstate', render);
+// internal links to app routes change the URL without a reload; product pages and everything else load normally
+document.addEventListener('click', (e) => {
+  const add = e.target.closest('[data-add]');
+  if (add) return addToCart(add.dataset.add);
+  const a = e.target.closest('a[href^="/"]');
+  if (!a || e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || !ROUTES[a.getAttribute('href')]) return;
+  e.preventDefault();
+  if (a.getAttribute('href') !== location.pathname) go(a.getAttribute('href'));
+});
+if (location.hash.startsWith('#/')) history.replaceState(null, '', location.hash.slice(1)); // old #/ bookmarks keep working
 addEventListener('scroll', () => $('#nav').classList.toggle('is-scrolled', scrollY > 8), { passive: true });
 
 try { await load(); } catch (e) { toast(describe(e)); }
