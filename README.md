@@ -9,6 +9,7 @@ loads only when needed, so it works the same in every major coding agent.
 | [`premium-ui-expert-v1`](skills/premium-ui-expert-v1/SKILL.md) | Interviews you about UI and motion, studies reference sites with devtools, and builds responsive, accessible websites that feel premium and not AI-generated — with 14 professional animation modules |
 | [`backend-expert-v1`](skills/backend-expert-v1/SKILL.md) | Maps every frontend → backend → database call and removes wasteful ones, picks polling / SSE / WebSockets only where needed, estimates load and sets per-endpoint rate limits (with online research), designs auth, admin and portal access, password hashing, encryption and OWASP API security — and writes a Test Handoff for the tester skill |
 | [`tester-expert-v1`](skills/tester-expert-v1/SKILL.md) | Tries to break the app like real users and attackers (double clicks, double payments, races, tabs, back/refresh, bad networks, tampering), tests every feature and how features affect each other, checks API calls and security with devtools, fixes bugs with regression tests, and — after asking — load-tests with virtual users to find the breaking point |
+| [`seo-expert-v1`](skills/seo-expert-v1/SKILL.md) | Makes pages findable, understood and worth ranking: interview, current-rules research, page-type metadata matrix, structured data, robots/sitemap, Google Search Console setup and indexing fixes, on-page/content, UI/UX and Core Web Vitals, off-page and local, AI-search visibility, honest measurement. Includes a page auditor and a sitemap generator. No ranking promises |
 
 ## Supported agents
 
@@ -45,6 +46,7 @@ For an older agent version without skills support, add these lines to its `AGENT
 `For any UI work, read and follow .agents/skills/premium-ui-expert-v1/SKILL.md.`
 `For any backend, API or database work, read and follow .agents/skills/backend-expert-v1/SKILL.md.`
 `For any testing, QA or load testing, read and follow .agents/skills/tester-expert-v1/SKILL.md.`
+`For any SEO, metadata, sitemap or Search Console work, read and follow .agents/skills/seo-expert-v1/SKILL.md.`
 
 ## Use it
 
@@ -82,6 +84,18 @@ skills/tester-expert-v1/
   references/load-testing.md       permission template, k6 journeys, breakpoint, browser load, bottleneck table, report
   scripts/race.mjs                 fire N identical requests at once (double-submit / double-charge / oversell)
   scripts/idor-check.mjs           check other users and visitors can't reach an owner's objects
+skills/seo-expert-v1/
+  SKILL.md                         priorities, workflow, interview, the 16 SEO-agent capabilities, red flags, report format
+  references/technical-seo.md      crawling, indexing, robots, sitemaps, canonicals, redirects, JS SEO, launch/migration checklists
+  references/search-console.md     setup, sitemap submission, URL Inspection, every indexing status and fix, APIs, routine
+  references/metadata-and-structured-data.md   titles, descriptions, head template, page-type matrix, schema, JSON-LD
+  references/on-page-and-content.md   intent, keyword map, on-page, E-E-A-T, AI-content rules, briefs, myths
+  references/ui-ux-for-seo.md      Core Web Vitals fixes, UI pattern risks, rendering, rules for the UI skill
+  references/off-page-and-local-seo.md   links, disavow, brand, Business Profile, international
+  references/ai-search-and-measurement.md   AI Overviews, AI crawlers, KPIs, reporting
+  references/site-type-playbooks.md   per-site-type page inventory, metadata, risks
+  references/agent-capabilities.md    capability map, tools and APIs, engagement workflow, safety
+  scripts/seo-audit.mjs, scripts/sitemap-gen.mjs   page auditor and sitemap generator (zero dependencies)
 install.mjs                        copies skills into each agent's folder
 tests/                             tests for the skill scripts — run: node --test
 ```
