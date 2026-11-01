@@ -1,0 +1,1361 @@
+{
+  "startedAt": "2026-11-01T13:42:41.493Z",
+  "machine": {
+    "cpus": 8,
+    "cpuModel": "Intel(R) Core(TM) i7-8650U CPU @ 1.90GHz",
+    "node": "v24.12.0",
+    "platform": "win32"
+  },
+  "target": "own copy on :3100 (limits x100000, payment stub 80 ms, 40 users)",
+  "phases": [
+    {
+      "name": "steady-mixed",
+      "plannedRate": [
+        10,
+        10
+      ],
+      "durationSec": 60,
+      "all": {
+        "count": 663,
+        "errorPct": 0,
+        "p50": 3,
+        "p95": 102,
+        "p99": 108,
+        "max": 113
+      },
+      "byEndpoint": {
+        "product": {
+          "count": 160,
+          "errorPct": 0,
+          "p50": 3,
+          "p95": 5,
+          "p99": 14,
+          "max": 26
+        },
+        "cart": {
+          "count": 63,
+          "errorPct": 0,
+          "p50": 13,
+          "p95": 15,
+          "p99": 17,
+          "max": 17
+        },
+        "checkout": {
+          "count": 63,
+          "errorPct": 0,
+          "p50": 104,
+          "p95": 109,
+          "p99": 113,
+          "max": 113
+        },
+        "screen": {
+          "count": 251,
+          "errorPct": 0,
+          "p50": 3,
+          "p95": 11,
+          "p99": 14,
+          "max": 26
+        },
+        "orders": {
+          "count": 126,
+          "errorPct": 0,
+          "p50": 3,
+          "p95": 5,
+          "p99": 13,
+          "max": 14
+        }
+      },
+      "verdict": null,
+      "timeline": [
+        {
+          "t": 1,
+          "targetRate": 10,
+          "achievedRate": 2,
+          "errorPct": 0,
+          "p95": 99,
+          "generatorLagP99ms": 17,
+          "inflight": 1,
+          "dropped": 0
+        },
+        {
+          "t": 2,
+          "targetRate": 10,
+          "achievedRate": 5,
+          "errorPct": 0,
+          "p95": 99,
+          "generatorLagP99ms": 17.6,
+          "inflight": 1,
+          "dropped": 0
+        },
+        {
+          "t": 3,
+          "targetRate": 10,
+          "achievedRate": 7,
+          "errorPct": 0,
+          "p95": 105,
+          "generatorLagP99ms": 17.1,
+          "inflight": 1,
+          "dropped": 0
+        },
+        {
+          "t": 4,
+          "targetRate": 10,
+          "achievedRate": 9,
+          "errorPct": 0,
+          "p95": 99,
+          "generatorLagP99ms": 16.8,
+          "inflight": 0,
+          "dropped": 0
+        },
+        {
+          "t": 5,
+          "targetRate": 10,
+          "achievedRate": 11,
+          "errorPct": 0,
+          "p95": 99,
+          "generatorLagP99ms": 17.8,
+          "inflight": 0,
+          "dropped": 0
+        },
+        {
+          "t": 6,
+          "targetRate": 10,
+          "achievedRate": 11,
+          "errorPct": 0,
+          "p95": 100,
+          "generatorLagP99ms": 17.1,
+          "inflight": 0,
+          "dropped": 0
+        },
+        {
+          "t": 7,
+          "targetRate": 10,
+          "achievedRate": 11,
+          "errorPct": 0,
+          "p95": 100,
+          "generatorLagP99ms": 17.8,
+          "inflight": 0,
+          "dropped": 0
+        },
+        {
+          "t": 8,
+          "targetRate": 10,
+          "achievedRate": 11,
+          "errorPct": 0,
+          "p95": 100,
+          "generatorLagP99ms": 18.3,
+          "inflight": 0,
+          "dropped": 0
+        },
+        {
+          "t": 9,
+          "targetRate": 10,
+          "achievedRate": 11,
+          "errorPct": 0,
+          "p95": 100,
+          "generatorLagP99ms": 17,
+          "inflight": 0,
+          "dropped": 0
+        },
+        {
+          "t": 10,
+          "targetRate": 10,
+          "achievedRate": 11,
+          "errorPct": 0,
+          "p95": 101,
+          "generatorLagP99ms": 19.2,
+          "inflight": 0,
+          "dropped": 0
+        },
+        {
+          "t": 11,
+          "targetRate": 10,
+          "achievedRate": 11,
+          "errorPct": 0,
+          "p95": 101,
+          "generatorLagP99ms": 16.3,
+          "inflight": 0,
+          "dropped": 0
+        },
+        {
+          "t": 12,
+          "targetRate": 10,
+          "achievedRate": 11,
+          "errorPct": 0,
+          "p95": 106,
+          "generatorLagP99ms": 16.9,
+          "inflight": 0,
+          "dropped": 0
+        },
+        {
+          "t": 13,
+          "targetRate": 10,
+          "achievedRate": 11,
+          "errorPct": 0,
+          "p95": 99,
+          "generatorLagP99ms": 16.7,
+          "inflight": 0,
+          "dropped": 0
+        },
+        {
+          "t": 14,
+          "targetRate": 10,
+          "achievedRate": 11,
+          "errorPct": 0,
+          "p95": 99,
+          "generatorLagP99ms": 16.2,
+          "inflight": 0,
+          "dropped": 0
+        },
+        {
+          "t": 15,
+          "targetRate": 10,
+          "achievedRate": 11,
+          "errorPct": 0,
+          "p95": 88,
+          "generatorLagP99ms": 17.7,
+          "inflight": 0,
+          "dropped": 0
+        },
+        {
+          "t": 16,
+          "targetRate": 10,
+          "achievedRate": 10,
+          "errorPct": 0,
+          "p95": 14,
+          "generatorLagP99ms": 18.3,
+          "inflight": 1,
+          "dropped": 0
+        },
+        {
+          "t": 17,
+          "targetRate": 10,
+          "achievedRate": 11,
+          "errorPct": 0,
+          "p95": 105,
+          "generatorLagP99ms": 17.6,
+          "inflight": 0,
+          "dropped": 0
+        },
+        {
+          "t": 18,
+          "targetRate": 10,
+          "achievedRate": 11,
+          "errorPct": 0,
+          "p95": 107,
+          "generatorLagP99ms": 17.3,
+          "inflight": 0,
+          "dropped": 0
+        },
+        {
+          "t": 19,
+          "targetRate": 10,
+          "achievedRate": 11,
+          "errorPct": 0,
+          "p95": 107,
+          "generatorLagP99ms": 16.3,
+          "inflight": 0,
+          "dropped": 0
+        },
+        {
+          "t": 20,
+          "targetRate": 10,
+          "achievedRate": 11,
+          "errorPct": 0,
+          "p95": 107,
+          "generatorLagP99ms": 17.9,
+          "inflight": 1,
+          "dropped": 0
+        },
+        {
+          "t": 21,
+          "targetRate": 10,
+          "achievedRate": 12,
+          "errorPct": 0,
+          "p95": 106,
+          "generatorLagP99ms": 18.2,
+          "inflight": 0,
+          "dropped": 0
+        },
+        {
+          "t": 22,
+          "targetRate": 10,
+          "achievedRate": 11,
+          "errorPct": 0,
+          "p95": 106,
+          "generatorLagP99ms": 16.5,
+          "inflight": 1,
+          "dropped": 0
+        },
+        {
+          "t": 23,
+          "targetRate": 10,
+          "achievedRate": 11,
+          "errorPct": 0,
+          "p95": 101,
+          "generatorLagP99ms": 16.5,
+          "inflight": 0,
+          "dropped": 0
+        },
+        {
+          "t": 24,
+          "targetRate": 10,
+          "achievedRate": 11,
+          "errorPct": 0,
+          "p95": 104,
+          "generatorLagP99ms": 16.8,
+          "inflight": 0,
+          "dropped": 0
+        },
+        {
+          "t": 25,
+          "targetRate": 10,
+          "achievedRate": 11,
+          "errorPct": 0,
+          "p95": 102,
+          "generatorLagP99ms": 18.4,
+          "inflight": 0,
+          "dropped": 0
+        },
+        {
+          "t": 26,
+          "targetRate": 10,
+          "achievedRate": 11,
+          "errorPct": 0,
+          "p95": 104,
+          "generatorLagP99ms": 16.7,
+          "inflight": 0,
+          "dropped": 0
+        },
+        {
+          "t": 27,
+          "targetRate": 10,
+          "achievedRate": 11,
+          "errorPct": 0,
+          "p95": 104,
+          "generatorLagP99ms": 18.3,
+          "inflight": 0,
+          "dropped": 0
+        },
+        {
+          "t": 28,
+          "targetRate": 10,
+          "achievedRate": 12,
+          "errorPct": 0,
+          "p95": 104,
+          "generatorLagP99ms": 17.1,
+          "inflight": 0,
+          "dropped": 0
+        },
+        {
+          "t": 29,
+          "targetRate": 10,
+          "achievedRate": 12,
+          "errorPct": 0,
+          "p95": 106,
+          "generatorLagP99ms": 16.8,
+          "inflight": 0,
+          "dropped": 0
+        },
+        {
+          "t": 30,
+          "targetRate": 10,
+          "achievedRate": 11,
+          "errorPct": 0,
+          "p95": 106,
+          "generatorLagP99ms": 16.5,
+          "inflight": 0,
+          "dropped": 0
+        },
+        {
+          "t": 31,
+          "targetRate": 10,
+          "achievedRate": 12,
+          "errorPct": 0,
+          "p95": 107,
+          "generatorLagP99ms": 18.1,
+          "inflight": 0,
+          "dropped": 0
+        },
+        {
+          "t": 32,
+          "targetRate": 10,
+          "achievedRate": 12,
+          "errorPct": 0,
+          "p95": 104,
+          "generatorLagP99ms": 19.1,
+          "inflight": 1,
+          "dropped": 0
+        },
+        {
+          "t": 33,
+          "targetRate": 10,
+          "achievedRate": 12,
+          "errorPct": 0,
+          "p95": 108,
+          "generatorLagP99ms": 17,
+          "inflight": 1,
+          "dropped": 0
+        },
+        {
+          "t": 34,
+          "targetRate": 10,
+          "achievedRate": 12,
+          "errorPct": 0,
+          "p95": 108,
+          "generatorLagP99ms": 18.7,
+          "inflight": 0,
+          "dropped": 0
+        },
+        {
+          "t": 35,
+          "targetRate": 10,
+          "achievedRate": 12,
+          "errorPct": 0,
+          "p95": 108,
+          "generatorLagP99ms": 19.1,
+          "inflight": 1,
+          "dropped": 0
+        },
+        {
+          "t": 36,
+          "targetRate": 10,
+          "achievedRate": 12,
+          "errorPct": 0,
+          "p95": 108,
+          "generatorLagP99ms": 18.7,
+          "inflight": 0,
+          "dropped": 0
+        },
+        {
+          "t": 37,
+          "targetRate": 10,
+          "achievedRate": 11,
+          "errorPct": 0,
+          "p95": 108,
+          "generatorLagP99ms": 17.1,
+          "inflight": 0,
+          "dropped": 0
+        },
+        {
+          "t": 38,
+          "targetRate": 10,
+          "achievedRate": 11,
+          "errorPct": 0,
+          "p95": 108,
+          "generatorLagP99ms": 16.7,
+          "inflight": 0,
+          "dropped": 0
+        },
+        {
+          "t": 39,
+          "targetRate": 10,
+          "achievedRate": 11,
+          "errorPct": 0,
+          "p95": 107,
+          "generatorLagP99ms": 16.5,
+          "inflight": 0,
+          "dropped": 0
+        },
+        {
+          "t": 40,
+          "targetRate": 10,
+          "achievedRate": 11,
+          "errorPct": 0,
+          "p95": 107,
+          "generatorLagP99ms": 18.4,
+          "inflight": 0,
+          "dropped": 0
+        },
+        {
+          "t": 41,
+          "targetRate": 10,
+          "achievedRate": 11,
+          "errorPct": 0,
+          "p95": 102,
+          "generatorLagP99ms": 17,
+          "inflight": 0,
+          "dropped": 0
+        },
+        {
+          "t": 42,
+          "targetRate": 10,
+          "achievedRate": 11,
+          "errorPct": 0,
+          "p95": 102,
+          "generatorLagP99ms": 16.2,
+          "inflight": 1,
+          "dropped": 0
+        },
+        {
+          "t": 43,
+          "targetRate": 10,
+          "achievedRate": 11,
+          "errorPct": 0,
+          "p95": 101,
+          "generatorLagP99ms": 19.3,
+          "inflight": 0,
+          "dropped": 0
+        },
+        {
+          "t": 44,
+          "targetRate": 10,
+          "achievedRate": 11,
+          "errorPct": 0,
+          "p95": 101,
+          "generatorLagP99ms": 19.3,
+          "inflight": 0,
+          "dropped": 0
+        },
+        {
+          "t": 45,
+          "targetRate": 10,
+          "achievedRate": 11,
+          "errorPct": 0,
+          "p95": 99,
+          "generatorLagP99ms": 19.3,
+          "inflight": 1,
+          "dropped": 0
+        },
+        {
+          "t": 46,
+          "targetRate": 10,
+          "achievedRate": 11,
+          "errorPct": 0,
+          "p95": 99,
+          "generatorLagP99ms": 16.9,
+          "inflight": 0,
+          "dropped": 0
+        },
+        {
+          "t": 47,
+          "targetRate": 10,
+          "achievedRate": 12,
+          "errorPct": 0,
+          "p95": 101,
+          "generatorLagP99ms": 18.3,
+          "inflight": 0,
+          "dropped": 0
+        },
+        {
+          "t": 48,
+          "targetRate": 10,
+          "achievedRate": 12,
+          "errorPct": 0,
+          "p95": 99,
+          "generatorLagP99ms": 16.6,
+          "inflight": 0,
+          "dropped": 0
+        },
+        {
+          "t": 49,
+          "targetRate": 10,
+          "achievedRate": 11,
+          "errorPct": 0,
+          "p95": 95,
+          "generatorLagP99ms": 17,
+          "inflight": 0,
+          "dropped": 0
+        },
+        {
+          "t": 50,
+          "targetRate": 10,
+          "achievedRate": 10,
+          "errorPct": 0,
+          "p95": 12,
+          "generatorLagP99ms": 20,
+          "inflight": 0,
+          "dropped": 0
+        },
+        {
+          "t": 51,
+          "targetRate": 10,
+          "achievedRate": 11,
+          "errorPct": 0,
+          "p95": 93,
+          "generatorLagP99ms": 19.2,
+          "inflight": 0,
+          "dropped": 0
+        },
+        {
+          "t": 52,
+          "targetRate": 10,
+          "achievedRate": 10,
+          "errorPct": 0,
+          "p95": 6,
+          "generatorLagP99ms": 16.6,
+          "inflight": 0,
+          "dropped": 0
+        },
+        {
+          "t": 53,
+          "targetRate": 10,
+          "achievedRate": 10,
+          "errorPct": 0,
+          "p95": 11,
+          "generatorLagP99ms": 17.2,
+          "inflight": 0,
+          "dropped": 0
+        },
+        {
+          "t": 54,
+          "targetRate": 10,
+          "achievedRate": 10,
+          "errorPct": 0,
+          "p95": 11,
+          "generatorLagP99ms": 16.8,
+          "inflight": 0,
+          "dropped": 0
+        },
+        {
+          "t": 55,
+          "targetRate": 10,
+          "achievedRate": 10,
+          "errorPct": 0,
+          "p95": 26,
+          "generatorLagP99ms": 18.7,
+          "inflight": 0,
+          "dropped": 0
+        },
+        {
+          "t": 56,
+          "targetRate": 10,
+          "achievedRate": 10,
+          "errorPct": 0,
+          "p95": 11,
+          "generatorLagP99ms": 16.9,
+          "inflight": 0,
+          "dropped": 0
+        },
+        {
+          "t": 57,
+          "targetRate": 10,
+          "achievedRate": 10,
+          "errorPct": 0,
+          "p95": 26,
+          "generatorLagP99ms": 19,
+          "inflight": 1,
+          "dropped": 0
+        },
+        {
+          "t": 58,
+          "targetRate": 10,
+          "achievedRate": 10,
+          "errorPct": 0,
+          "p95": 26,
+          "generatorLagP99ms": 17.1,
+          "inflight": 0,
+          "dropped": 0
+        },
+        {
+          "t": 59,
+          "targetRate": 10,
+          "achievedRate": 11,
+          "errorPct": 0,
+          "p95": 107,
+          "generatorLagP99ms": 17.5,
+          "inflight": 0,
+          "dropped": 0
+        }
+      ]
+    },
+    {
+      "name": "checkout-only",
+      "plannedRate": [
+        2,
+        2
+      ],
+      "durationSec": 30,
+      "all": {
+        "count": 120,
+        "errorPct": 0,
+        "p50": 88,
+        "p95": 111,
+        "p99": 114,
+        "max": 140
+      },
+      "byEndpoint": {
+        "cart": {
+          "count": 60,
+          "errorPct": 0,
+          "p50": 11,
+          "p95": 14,
+          "p99": 15,
+          "max": 15
+        },
+        "checkout": {
+          "count": 60,
+          "errorPct": 0,
+          "p50": 106,
+          "p95": 113,
+          "p99": 140,
+          "max": 140
+        }
+      },
+      "verdict": null,
+      "timeline": [
+        {
+          "t": 1,
+          "targetRate": 2,
+          "achievedRate": 0,
+          "errorPct": 0,
+          "p95": 107,
+          "generatorLagP99ms": 19.8,
+          "inflight": 1,
+          "dropped": 0
+        },
+        {
+          "t": 2,
+          "targetRate": 2,
+          "achievedRate": 1,
+          "errorPct": 0,
+          "p95": 112,
+          "generatorLagP99ms": 19.5,
+          "inflight": 1,
+          "dropped": 0
+        },
+        {
+          "t": 3,
+          "targetRate": 2,
+          "achievedRate": 2,
+          "errorPct": 0,
+          "p95": 112,
+          "generatorLagP99ms": 18.8,
+          "inflight": 1,
+          "dropped": 0
+        },
+        {
+          "t": 4,
+          "targetRate": 2,
+          "achievedRate": 3,
+          "errorPct": 0,
+          "p95": 112,
+          "generatorLagP99ms": 19.3,
+          "inflight": 1,
+          "dropped": 0
+        },
+        {
+          "t": 5,
+          "targetRate": 2,
+          "achievedRate": 4,
+          "errorPct": 0,
+          "p95": 112,
+          "generatorLagP99ms": 20.3,
+          "inflight": 1,
+          "dropped": 0
+        },
+        {
+          "t": 6,
+          "targetRate": 2,
+          "achievedRate": 4,
+          "errorPct": 0,
+          "p95": 112,
+          "generatorLagP99ms": 18.2,
+          "inflight": 1,
+          "dropped": 0
+        },
+        {
+          "t": 7,
+          "targetRate": 2,
+          "achievedRate": 4,
+          "errorPct": 0,
+          "p95": 108,
+          "generatorLagP99ms": 19.2,
+          "inflight": 1,
+          "dropped": 0
+        },
+        {
+          "t": 8,
+          "targetRate": 2,
+          "achievedRate": 4,
+          "errorPct": 0,
+          "p95": 108,
+          "generatorLagP99ms": 16.6,
+          "inflight": 1,
+          "dropped": 0
+        },
+        {
+          "t": 9,
+          "targetRate": 2,
+          "achievedRate": 4,
+          "errorPct": 0,
+          "p95": 114,
+          "generatorLagP99ms": 17,
+          "inflight": 1,
+          "dropped": 0
+        },
+        {
+          "t": 10,
+          "targetRate": 2,
+          "achievedRate": 4,
+          "errorPct": 0,
+          "p95": 114,
+          "generatorLagP99ms": 19.5,
+          "inflight": 1,
+          "dropped": 0
+        },
+        {
+          "t": 11,
+          "targetRate": 2,
+          "achievedRate": 4,
+          "errorPct": 0,
+          "p95": 114,
+          "generatorLagP99ms": 19.3,
+          "inflight": 1,
+          "dropped": 0
+        },
+        {
+          "t": 12,
+          "targetRate": 2,
+          "achievedRate": 4,
+          "errorPct": 0,
+          "p95": 114,
+          "generatorLagP99ms": 17.4,
+          "inflight": 1,
+          "dropped": 0
+        },
+        {
+          "t": 13,
+          "targetRate": 2,
+          "achievedRate": 4,
+          "errorPct": 0,
+          "p95": 140,
+          "generatorLagP99ms": 17.6,
+          "inflight": 1,
+          "dropped": 0
+        },
+        {
+          "t": 14,
+          "targetRate": 2,
+          "achievedRate": 4,
+          "errorPct": 0,
+          "p95": 140,
+          "generatorLagP99ms": 19.2,
+          "inflight": 1,
+          "dropped": 0
+        },
+        {
+          "t": 15,
+          "targetRate": 2,
+          "achievedRate": 4,
+          "errorPct": 0,
+          "p95": 140,
+          "generatorLagP99ms": 19.7,
+          "inflight": 1,
+          "dropped": 0
+        },
+        {
+          "t": 16,
+          "targetRate": 2,
+          "achievedRate": 4,
+          "errorPct": 0,
+          "p95": 140,
+          "generatorLagP99ms": 19,
+          "inflight": 1,
+          "dropped": 0
+        },
+        {
+          "t": 17,
+          "targetRate": 2,
+          "achievedRate": 4,
+          "errorPct": 0,
+          "p95": 140,
+          "generatorLagP99ms": 18.7,
+          "inflight": 1,
+          "dropped": 0
+        },
+        {
+          "t": 18,
+          "targetRate": 2,
+          "achievedRate": 4,
+          "errorPct": 0,
+          "p95": 113,
+          "generatorLagP99ms": 18.9,
+          "inflight": 1,
+          "dropped": 0
+        },
+        {
+          "t": 19,
+          "targetRate": 2,
+          "achievedRate": 4,
+          "errorPct": 0,
+          "p95": 109,
+          "generatorLagP99ms": 18.8,
+          "inflight": 0,
+          "dropped": 0
+        },
+        {
+          "t": 20,
+          "targetRate": 2,
+          "achievedRate": 4,
+          "errorPct": 0,
+          "p95": 112,
+          "generatorLagP99ms": 23.2,
+          "inflight": 0,
+          "dropped": 0
+        },
+        {
+          "t": 21,
+          "targetRate": 2,
+          "achievedRate": 4,
+          "errorPct": 0,
+          "p95": 112,
+          "generatorLagP99ms": 19.1,
+          "inflight": 0,
+          "dropped": 0
+        },
+        {
+          "t": 22,
+          "targetRate": 2,
+          "achievedRate": 4,
+          "errorPct": 0,
+          "p95": 112,
+          "generatorLagP99ms": 17.7,
+          "inflight": 0,
+          "dropped": 0
+        },
+        {
+          "t": 23,
+          "targetRate": 2,
+          "achievedRate": 4,
+          "errorPct": 0,
+          "p95": 112,
+          "generatorLagP99ms": 17.9,
+          "inflight": 0,
+          "dropped": 0
+        },
+        {
+          "t": 24,
+          "targetRate": 2,
+          "achievedRate": 4,
+          "errorPct": 0,
+          "p95": 112,
+          "generatorLagP99ms": 18.6,
+          "inflight": 0,
+          "dropped": 0
+        },
+        {
+          "t": 25,
+          "targetRate": 2,
+          "achievedRate": 4,
+          "errorPct": 0,
+          "p95": 109,
+          "generatorLagP99ms": 18.4,
+          "inflight": 0,
+          "dropped": 0
+        },
+        {
+          "t": 26,
+          "targetRate": 2,
+          "achievedRate": 4,
+          "errorPct": 0,
+          "p95": 109,
+          "generatorLagP99ms": 16.2,
+          "inflight": 0,
+          "dropped": 0
+        },
+        {
+          "t": 27,
+          "targetRate": 2,
+          "achievedRate": 4,
+          "errorPct": 0,
+          "p95": 109,
+          "generatorLagP99ms": 18.6,
+          "inflight": 0,
+          "dropped": 0
+        },
+        {
+          "t": 28,
+          "targetRate": 2,
+          "achievedRate": 4,
+          "errorPct": 0,
+          "p95": 109,
+          "generatorLagP99ms": 17.7,
+          "inflight": 0,
+          "dropped": 0
+        },
+        {
+          "t": 29,
+          "targetRate": 2,
+          "achievedRate": 4,
+          "errorPct": 0,
+          "p95": 107,
+          "generatorLagP99ms": 17.1,
+          "inflight": 0,
+          "dropped": 0
+        }
+      ]
+    },
+    {
+      "name": "breakpoint-ramp",
+      "plannedRate": [
+        10,
+        2500
+      ],
+      "durationSec": 28,
+      "all": {
+        "count": 8060,
+        "errorPct": 2.084,
+        "p50": 172,
+        "p95": 992,
+        "p99": 2603,
+        "max": 2673
+      },
+      "outcomes": {
+        "200": 7152,
+        "201": 624,
+        "409": 116,
+        "ECONNREFUSED": 168
+      },
+      "byEndpoint": {
+        "product": {
+          "count": 1831,
+          "errorPct": 2.13,
+          "p50": 166,
+          "p95": 1000,
+          "p99": 2607,
+          "max": 2668
+        },
+        "screen": {
+          "count": 3248,
+          "errorPct": 2.124,
+          "p50": 163,
+          "p95": 983,
+          "p99": 2606,
+          "max": 2673
+        },
+        "orders": {
+          "count": 1485,
+          "errorPct": 2.02,
+          "p50": 167,
+          "p95": 973,
+          "p99": 2604,
+          "max": 2656
+        },
+        "cart": {
+          "count": 748,
+          "errorPct": 2.941,
+          "p50": 170,
+          "p95": 957,
+          "p99": 2594,
+          "max": 2657
+        },
+        "checkout": {
+          "count": 748,
+          "errorPct": 1.07,
+          "p50": 318,
+          "p95": 993,
+          "p99": 1233,
+          "max": 1330
+        }
+      },
+      "verdict": {
+        "reason": "errors above 5%",
+        "atRate": 551,
+        "window": {
+          "t": 26,
+          "targetRate": 551,
+          "achievedRate": 457,
+          "errorPct": 7.36,
+          "p95": 1034,
+          "generatorLagP99ms": 14.5,
+          "inflight": 532,
+          "dropped": 0
+        }
+      },
+      "timeline": [
+        {
+          "t": 1,
+          "targetRate": 31,
+          "achievedRate": 4,
+          "errorPct": 0,
+          "p95": 12,
+          "generatorLagP99ms": 18.7,
+          "inflight": 0,
+          "dropped": 0
+        },
+        {
+          "t": 2,
+          "targetRate": 52,
+          "achievedRate": 14,
+          "errorPct": 0,
+          "p95": 95,
+          "generatorLagP99ms": 17.5,
+          "inflight": 0,
+          "dropped": 0
+        },
+        {
+          "t": 3,
+          "targetRate": 73,
+          "achievedRate": 27,
+          "errorPct": 0,
+          "p95": 96,
+          "generatorLagP99ms": 20.2,
+          "inflight": 1,
+          "dropped": 0
+        },
+        {
+          "t": 4,
+          "targetRate": 94,
+          "achievedRate": 45,
+          "errorPct": 0,
+          "p95": 95,
+          "generatorLagP99ms": 18.7,
+          "inflight": 0,
+          "dropped": 0
+        },
+        {
+          "t": 5,
+          "targetRate": 114,
+          "achievedRate": 68,
+          "errorPct": 0,
+          "p95": 94,
+          "generatorLagP99ms": 16.7,
+          "inflight": 3,
+          "dropped": 0
+        },
+        {
+          "t": 6,
+          "targetRate": 135,
+          "achievedRate": 90,
+          "errorPct": 0,
+          "p95": 93,
+          "generatorLagP99ms": 16.3,
+          "inflight": 1,
+          "dropped": 0
+        },
+        {
+          "t": 7,
+          "targetRate": 156,
+          "achievedRate": 112,
+          "errorPct": 0,
+          "p95": 93,
+          "generatorLagP99ms": 18.1,
+          "inflight": 4,
+          "dropped": 0
+        },
+        {
+          "t": 8,
+          "targetRate": 177,
+          "achievedRate": 135,
+          "errorPct": 0,
+          "p95": 93,
+          "generatorLagP99ms": 18.7,
+          "inflight": 1,
+          "dropped": 0
+        },
+        {
+          "t": 9,
+          "targetRate": 198,
+          "achievedRate": 158,
+          "errorPct": 0,
+          "p95": 95,
+          "generatorLagP99ms": 18.5,
+          "inflight": 4,
+          "dropped": 0
+        },
+        {
+          "t": 10,
+          "targetRate": 219,
+          "achievedRate": 181,
+          "errorPct": 0,
+          "p95": 95,
+          "generatorLagP99ms": 21.5,
+          "inflight": 2,
+          "dropped": 0
+        },
+        {
+          "t": 11,
+          "targetRate": 239,
+          "achievedRate": 205,
+          "errorPct": 0,
+          "p95": 96,
+          "generatorLagP99ms": 19.3,
+          "inflight": 5,
+          "dropped": 0
+        },
+        {
+          "t": 12,
+          "targetRate": 260,
+          "achievedRate": 227,
+          "errorPct": 0,
+          "p95": 95,
+          "generatorLagP99ms": 20.6,
+          "inflight": 4,
+          "dropped": 0
+        },
+        {
+          "t": 13,
+          "targetRate": 281,
+          "achievedRate": 245,
+          "errorPct": 0,
+          "p95": 101,
+          "generatorLagP99ms": 17.2,
+          "inflight": 40,
+          "dropped": 0
+        },
+        {
+          "t": 14,
+          "targetRate": 302,
+          "achievedRate": 261,
+          "errorPct": 0,
+          "p95": 199,
+          "generatorLagP99ms": 11.4,
+          "inflight": 68,
+          "dropped": 0
+        },
+        {
+          "t": 15,
+          "targetRate": 322,
+          "achievedRate": 296,
+          "errorPct": 0,
+          "p95": 206,
+          "generatorLagP99ms": 10.9,
+          "inflight": 20,
+          "dropped": 0
+        },
+        {
+          "t": 16,
+          "targetRate": 343,
+          "achievedRate": 312,
+          "errorPct": 0,
+          "p95": 202,
+          "generatorLagP99ms": 15.3,
+          "inflight": 36,
+          "dropped": 0
+        },
+        {
+          "t": 17,
+          "targetRate": 364,
+          "achievedRate": 336,
+          "errorPct": 0,
+          "p95": 202,
+          "generatorLagP99ms": 11.6,
+          "inflight": 45,
+          "dropped": 0
+        },
+        {
+          "t": 18,
+          "targetRate": 385,
+          "achievedRate": 352,
+          "errorPct": 0,
+          "p95": 212,
+          "generatorLagP99ms": 14.6,
+          "inflight": 97,
+          "dropped": 0
+        },
+        {
+          "t": 19,
+          "targetRate": 405,
+          "achievedRate": 388,
+          "errorPct": 0,
+          "p95": 282,
+          "generatorLagP99ms": 9.9,
+          "inflight": 74,
+          "dropped": 0
+        },
+        {
+          "t": 20,
+          "targetRate": 426,
+          "achievedRate": 396,
+          "errorPct": 0,
+          "p95": 307,
+          "generatorLagP99ms": 13.2,
+          "inflight": 97,
+          "dropped": 0
+        },
+        {
+          "t": 21,
+          "targetRate": 447,
+          "achievedRate": 424,
+          "errorPct": 0,
+          "p95": 332,
+          "generatorLagP99ms": 11.1,
+          "inflight": 99,
+          "dropped": 0
+        },
+        {
+          "t": 22,
+          "targetRate": 468,
+          "achievedRate": 421,
+          "errorPct": 0,
+          "p95": 370,
+          "generatorLagP99ms": 12.5,
+          "inflight": 224,
+          "dropped": 0
+        },
+        {
+          "t": 23,
+          "targetRate": 489,
+          "achievedRate": 444,
+          "errorPct": 0,
+          "p95": 571,
+          "generatorLagP99ms": 11,
+          "inflight": 282,
+          "dropped": 0
+        },
+        {
+          "t": 24,
+          "targetRate": 509,
+          "achievedRate": 463,
+          "errorPct": 0,
+          "p95": 769,
+          "generatorLagP99ms": 9.4,
+          "inflight": 273,
+          "dropped": 0
+        },
+        {
+          "t": 25,
+          "targetRate": 530,
+          "achievedRate": 443,
+          "errorPct": 0,
+          "p95": 875,
+          "generatorLagP99ms": 20.7,
+          "inflight": 496,
+          "dropped": 0
+        },
+        {
+          "t": 26,
+          "targetRate": 551,
+          "achievedRate": 457,
+          "errorPct": 7.36,
+          "p95": 1034,
+          "generatorLagP99ms": 14.5,
+          "inflight": 532,
+          "dropped": 0
+        }
+      ]
+    }
+  ],
+  "serverSamples": [
+    {
+      "t": 7,
+      "cpuPercentOfOneCore": 45,
+      "memoryMB": 67
+    },
+    {
+      "t": 12,
+      "cpuPercentOfOneCore": 54,
+      "memoryMB": 70
+    },
+    {
+      "t": 17,
+      "cpuPercentOfOneCore": 87,
+      "memoryMB": 85
+    },
+    {
+      "t": 22,
+      "cpuPercentOfOneCore": 84,
+      "memoryMB": 102
+    },
+    {
+      "t": 27,
+      "cpuPercentOfOneCore": 83,
+      "memoryMB": 105
+    }
+  ],
+  "dropped": 0,
+  "serverStderr": "",
+  "finishedAt": "2026-11-01T13:44:38.391Z",
+  "rampRerunAt": "2026-11-01T13:46:12.276Z"
+}
