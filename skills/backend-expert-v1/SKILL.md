@@ -147,6 +147,12 @@ Base URL of staging, how to create test users per role, seed command. Never load
 - Errors that return stack traces, SQL or internal IDs of other tenants.
 - Polling every 1–5 seconds from every open tab for data that rarely changes.
 
+## Scripts (zero dependencies, run with `node`)
+
+- `scripts/call-map.mjs <project-dir>` — Phase 0/3: lists every frontend call, the route that handles it, calls with no route, routes nothing calls, pollers and calls inside loops.
+- `scripts/capacity.mjs --dau N --reqs N [--hours --peak --resp --db --measured --limit name=rate]` — Phase 2: peak/design req/s, concurrency, DB pool, per-actor rate limits, headroom against a measured breaking point. Inputs are assumptions until the interview or a load test confirms them.
+- `scripts/security-scan.mjs <project-dir>` — Phase 5 self-check: secrets in code, weak password hashing, CORS with credentials, cookies, `SELECT *`, unbounded or interpolated SQL, authenticated `:id` routes with no owner check, missing headers/rate limit/body limit. Heuristic: add `scan-ignore` to a reviewed line; a clean run is not proof, the tester skill still has to try to break it.
+
 ## Reference files (load the one a phase needs, not all at once)
 
 - `references/call-map.md` — tracing frontend ↔ backend ↔ database, "does it need the backend?", finding wasteful calls, minimum-request design.
