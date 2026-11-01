@@ -86,6 +86,16 @@ install.mjs                        copies skills into each agent's folder
 tests/                             tests for the skill scripts — run: node --test
 ```
 
+## Demo shop and work report
+
+`demo/shop` is a small shop built with all three skills in turn: backend design and Test Handoff, storefront UI, then testing (bugs found and fixed, load test).
+
+```bash
+cd demo/shop && npm run seed && npm start
+```
+
+Open http://localhost:3000. Run its tests with `npm test`. `report/work-report.html` summarises everything that was done; rebuild it with `node report/build.mjs`.
+
 ## Adding the next skill
 
 Create `skills/<name>/SKILL.md` with `name` and `description` frontmatter, keep the main file
