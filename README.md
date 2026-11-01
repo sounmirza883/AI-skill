@@ -8,6 +8,7 @@ loads only when needed, so it works the same in every major coding agent.
 |---|---|
 | [`premium-ui-expert-v1`](skills/premium-ui-expert-v1/SKILL.md) | Interviews you about UI and motion, studies reference sites with devtools, and builds responsive, accessible websites that feel premium and not AI-generated — with 14 professional animation modules |
 | [`backend-expert-v1`](skills/backend-expert-v1/SKILL.md) | Maps every frontend → backend → database call and removes wasteful ones, picks polling / SSE / WebSockets only where needed, estimates load and sets per-endpoint rate limits (with online research), designs auth, admin and portal access, password hashing, encryption and OWASP API security — and writes a Test Handoff for the tester skill |
+| [`tester-expert-v1`](skills/tester-expert-v1/SKILL.md) | Tries to break the app like real users and attackers (double clicks, double payments, races, tabs, back/refresh, bad networks, tampering), tests every feature and how features affect each other, checks API calls and security with devtools, fixes bugs with regression tests, and — after asking — load-tests with virtual users to find the breaking point |
 
 ## Supported agents
 
@@ -43,6 +44,7 @@ Or copy the folders in `skills/` into the folder from the table by hand.
 For an older agent version without skills support, add these lines to its `AGENTS.md` / rules file:
 `For any UI work, read and follow .agents/skills/premium-ui-expert-v1/SKILL.md.`
 `For any backend, API or database work, read and follow .agents/skills/backend-expert-v1/SKILL.md.`
+`For any testing, QA or load testing, read and follow .agents/skills/tester-expert-v1/SKILL.md.`
 
 ## Use it
 
@@ -72,7 +74,16 @@ skills/backend-expert-v1/
   references/capacity-and-rate-limits.md   load formulas, inventory example, per-endpoint rate limits
   references/security.md           auth, sessions/JWT, password hashing, encryption, admin/portal access, OWASP API Top 10
   references/database.md           queries, indexes, pagination, transactions, stock concurrency, caching, migrations, backups
+skills/tester-expert-v1/
+  SKILL.md                         break-it mindset + safety rules + workflow + fix loop + bug report format
+  references/break-it-playbook.md  double clicks/payments, races, tabs, back/refresh, network, tampering, boundaries, lifecycle
+  references/api-security-testing.md   API inventory, auth, IDOR, roles, mass assignment, injection, rate limits, headers, scanners
+  references/e2e-and-devtools.md   Playwright setup, devtools fixture, feature interaction matrix, a11y, responsive, UI fixes
+  references/load-testing.md       permission template, k6 journeys, breakpoint, browser load, bottleneck table, report
+  scripts/race.mjs                 fire N identical requests at once (double-submit / double-charge / oversell)
+  scripts/idor-check.mjs           check other users and visitors can't reach an owner's objects
 install.mjs                        copies skills into each agent's folder
+tests/                             tests for the skill scripts — run: node --test
 ```
 
 ## Adding the next skill
