@@ -1,0 +1,62 @@
+{
+  ".vscode/c_cpp_properties.json": {
+    "mtime": 1793532542.221632,
+    "seen": 1793534319.0622663,
+    "ast_hash": "197116088df9d2eba4e4cf5a41bdbaef",
+    "semantic_hash": "197116088df9d2eba4e4cf5a41bdbaef"
+  },
+  ".vscode/launch.json": {
+    "mtime": 1793532542.1793208,
+    "seen": 1793534319.0622663,
+    "ast_hash": "4d27f2823739009547d04a9a7a262288",
+    "semantic_hash": "4d27f2823739009547d04a9a7a262288"
+  },
+  ".vscode/settings.json": {
+    "mtime": 1793532542.1437826,
+    "seen": 1793534319.0622663,
+    "ast_hash": "eef57d7f6e5d2d33db3a1c74fd147875",
+    "semantic_hash": "eef57d7f6e5d2d33db3a1c74fd147875"
+  },
+  "install.mjs": {
+    "mtime": 1793533605.2113185,
+    "seen": 1793534319.0622663,
+    "ast_hash": "65100ff8819ac89273d8d11d76b039da",
+    "semantic_hash": "65100ff8819ac89273d8d11d76b039da"
+  },
+  "README.md": {
+    "mtime": 1793533606.0517642,
+    "seen": 1793534319.0622663,
+    "ast_hash": "df50ef5225599efda57ae213a5607ba1",
+    "semantic_hash": "df50ef5225599efda57ae213a5607ba1"
+  },
+  "skills/premium-frontend/SKILL.md": {
+    "mtime": 1793533337.8783925,
+    "seen": 1793534319.0622663,
+    "ast_hash": "ef3f092493872dd989f2551a95c540c4",
+    "semantic_hash": "ef3f092493872dd989f2551a95c540c4"
+  },
+  "skills/premium-frontend/references/animations.md": {
+    "mtime": 1793533472.7433279,
+    "seen": 1793534319.0622663,
+    "ast_hash": "a00b6e01cacf6dd550b75d6e328ab424",
+    "semantic_hash": "a00b6e01cacf6dd550b75d6e328ab424"
+  },
+  "skills/premium-frontend/references/psychology-and-color.md": {
+    "mtime": 1793533572.4920442,
+    "seen": 1793534319.0622663,
+    "ast_hash": "52f0237652aacef7fd26233a43bb0f72",
+    "semantic_hash": "52f0237652aacef7fd26233a43bb0f72"
+  },
+  "skills/premium-frontend/references/qa-checklist.md": {
+    "mtime": 1793533631.4601643,
+    "seen": 1793534319.0622663,
+    "ast_hash": "82b43bb43e2c130284545ad25425feb8",
+    "semantic_hash": "82b43bb43e2c130284545ad25425feb8"
+  },
+  "skills/premium-frontend/references/reference-cloning.md": {
+    "mtime": 1793533573.4833984,
+    "seen": 1793534319.0622663,
+    "ast_hash": "ef13fb9d7cec3f14abda37c5101b6119",
+    "semantic_hash": "ef13fb9d7cec3f14abda37c5101b6119"
+  }
+}
