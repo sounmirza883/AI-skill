@@ -102,6 +102,7 @@ test('declined card restores stock and leaves no paid order', async () => {
 
 test('ordering needs a non-empty cart and a valid payment method', async () => {
   const bob = await login('Bob');
+  await putQty(bob, 'poster', 0); // the declined card above correctly left the poster in his cart
   assert.equal((await pay(bob, 'key-empty-0001')).status, 409);
   const bad = await bob('/api/checkout', { method: 'POST', body: JSON.stringify({ paymentMethod: 'cash' }) });
   assert.equal(bad.status, 422);

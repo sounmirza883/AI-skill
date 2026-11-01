@@ -57,6 +57,7 @@ const q = {
   clearCart: db.prepare('DELETE FROM cart_items WHERE user_id = ?'),
   takeStock: db.prepare('UPDATE products SET stock = stock - ? WHERE id = ? AND stock >= ?'), // atomic: never goes negative
   giveStock: db.prepare('UPDATE products SET stock = stock + ? WHERE id = ?'),
+  restoreCart: db.prepare('INSERT INTO cart_items(user_id, product_id, qty) VALUES (?, ?, ?) ON CONFLICT(user_id, product_id) DO UPDATE SET qty = MIN(20, qty + excluded.qty)'),
   addOrder: db.prepare('INSERT INTO orders(id, user_id, idempotency_key, status, total_cents, created_at) VALUES (?, ?, ?, ?, ?, ?)'),
   addOrderItem: db.prepare('INSERT INTO order_items(order_id, product_id, name, unit_cents, qty) VALUES (?, ?, ?, ?, ?)'),
   setStatus: db.prepare('UPDATE orders SET status = ? WHERE id = ? AND status = \'pending\''),
@@ -168,7 +169,10 @@ async function checkout(user, keyHeader, body) {
     tx(() => { q.setStatus.run('paid', order.id); q.addPayment.run(order.id, order.totalCents, `stub_${order.id}`); });
     return [201, { order: ordersWithItems([q.orderOwned.get(order.id, user.id)])[0] }];
   }
-  tx(() => { q.setStatus.run('failed', order.id); for (const it of order.items) q.giveStock.run(it.qty, it.product_id); });
+  tx(() => { // a declined card undoes everything: stock goes back and the buyer keeps their cart to retry
+    q.setStatus.run('failed', order.id);
+    for (const it of order.items) { q.giveStock.run(it.qty, it.product_id); q.restoreCart.run(user.id, it.product_id, it.qty); }
+  });
   throw new HttpError(402, 'payment_declined', { orderId: order.id });
 }
 
@@ -178,7 +182,11 @@ async function api(req, res, url) {
   const unsafe = method !== 'GET' && method !== 'HEAD';
   if (unsafe) { // CSRF defence in depth on top of SameSite=Lax
     const origin = req.headers.origin;
-    if (origin && new URL(origin).host !== req.headers.host) throw new HttpError(403, 'bad_origin');
+    if (origin) {
+      let host = null;
+      try { host = new URL(origin).host; } catch { /* "null" (sandboxed frames) or garbage: treated as foreign */ }
+      if (host !== req.headers.host) throw new HttpError(403, 'bad_origin');
+    }
   }
   const wait0 = limited(`edge:${ip}`, 1000, 60_000);
   if (wait0) throw new HttpError(429, 'rate_limited', { retryAfter: wait0 });
@@ -286,7 +294,8 @@ async function serveStatic(req, res, pathname) {
   if (!type) throw new HttpError(404, 'not_found');
   let data;
   try { data = await readFile(file); } catch { throw new HttpError(404, 'not_found'); }
-  res.writeHead(200, { 'Content-Type': type, 'Cache-Control': type.startsWith('text/html') ? 'no-cache' : 'public, max-age=3600' });
+  // shortcut: no fingerprinted file names, so everything revalidates (no-cache); switch to hashed names + long max-age for production
+  res.writeHead(200, { 'Content-Type': type, 'Cache-Control': 'no-cache' });
   res.end(req.method === 'HEAD' ? undefined : data);
 }
 

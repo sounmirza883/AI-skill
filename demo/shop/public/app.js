@@ -292,6 +292,7 @@ function checkoutView() {
       $('#main').replaceChildren(confirmationView(res.order));
       $('#confirm-title').focus();
     } catch (e) {
+      if (e.status === 401) { btn.dataset.state = 'idle'; return fail(e); } // session ended: go to login instead of a dead-end error
       err.textContent = describe(e);
       status.textContent = err.textContent;
       if (e.status && e.data?.error !== 'checkout_in_progress') state.checkoutKey = null; // server gave a final answer: next click is a new attempt
