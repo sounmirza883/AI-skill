@@ -84,6 +84,8 @@ skills/tester-expert-v1/
   references/load-testing.md       permission template, k6 journeys, breakpoint, browser load, bottleneck table, report
   scripts/race.mjs                 fire N identical requests at once (double-submit / double-charge / oversell)
   scripts/idor-check.mjs           check other users and visitors can't reach an owner's objects
+skills/premium-ui-expert-v1/scripts/ui-audit.mjs, contrast-check.mjs   static UI/motion/a11y audit and token contrast checker
+skills/backend-expert-v1/scripts/call-map.mjs, capacity.mjs, security-scan.mjs   call map, load estimate, red-flag scan
 skills/seo-expert-v1/
   SKILL.md                         priorities, workflow, interview, the 16 SEO-agent capabilities, red flags, report format
   references/technical-seo.md      crawling, indexing, robots, sitemaps, canonicals, redirects, JS SEO, launch/migration checklists
