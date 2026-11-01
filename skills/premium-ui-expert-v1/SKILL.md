@@ -184,6 +184,11 @@ Premium alternatives: specific copy with real numbers and names, a distinctive t
 - Cloning a reference means learning its patterns and timing, not copying its brand, text, images, illustrations, code bundles or paid fonts.
 - Accessibility is part of "premium": contrast, keyboard, screen reader text and reduced motion are required, not extras.
 
+## Scripts (zero dependencies, run with `node`)
+
+- `scripts/ui-audit.mjs <dir>` — Phase 5: static scan for layout-property animation, missing reduced-motion, `transition: all`, removed focus outlines, duration sprawl, hidden hero/preloader (LCP and SEO risk), images without alt/size, missing lang/viewport/labels, AI-look gradients and copy, emoji icons, fake social proof. Regex-based: it cannot see computed styles, so it does not replace the browser QA. `scan-ignore` on a line silences a reviewed finding.
+- `scripts/contrast-check.mjs <file.css>` (or two colours) — checks every text/background token pair in light and dark mode; exits 1 on failure. Hex colours only.
+
 ## Reference files
 
 - `references/animations.md` — the full recipe for every module, plus foundation code and framework ports.
