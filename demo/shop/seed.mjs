@@ -15,7 +15,7 @@ const PRODUCTS = [
   ['bottle', 'Steel bottle', 'Keeps drinks cold for 24 h.', 2200, 50],
   ['notebook', 'Dot-grid notebook', '120 pages, lay-flat binding.', 900, 50],
   ['poster', 'Art poster', 'A2, matte archival paper.', 1500, 50],
-  ['limited-print', 'Limited print (1 left)', 'Signed print. Only one exists.', 9900, 1],
+  ['limited-print', 'Limited print', 'Signed print. Only one exists.', 9900, 1],
 ];
 
 export async function seed(dbPath) {
